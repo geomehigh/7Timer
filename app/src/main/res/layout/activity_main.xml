@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -75,10 +76,18 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/show7Timer"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
-        android:background="@mipmap/library_star"
-        ></LinearLayout>
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/library_star"
+            android:id="@+id/imageView"
+            android:layout_weight="1" />
+    </LinearLayout>
 </LinearLayout>
