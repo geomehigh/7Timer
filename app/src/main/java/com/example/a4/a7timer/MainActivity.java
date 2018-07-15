@@ -40,7 +40,7 @@ import static android.content.Context.LOCATION_SERVICE;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TODO ="Consider calling" ;
-    private Button btnSetPos,btnWhut;
+    private Button btnSetPos,btnWhut,btnOK;
     private EditText edtLon, edtLat;
     private String strUrl, str1, str2, str3, strLon, strLat;
     private LocationManager locationManager;        //定义一个LocationManager和一个当前正在使用的位置提供器(GPS还是网络)
@@ -55,24 +55,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        str1 = "http://167.99.8.254/bin/astro.php?lon=";
+        str2 = "&lat=";
+        str3 = "&ac=0&lang=zh-CN&unit=metric&output=internal&tzshift=0";
+        edtLon = (EditText) findViewById(R.id.editTextLon);
+        edtLat = (EditText) findViewById(R.id.editTextLat);
+
+
         imageView=(ImageView)findViewById(R.id.imageView);
         linearLayoutShow=(LinearLayout)findViewById(R.id.show7Timer);
         btnWhut=(Button)findViewById(R.id.btnWhut);
         btnWhut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                strUrl="http://167.99.8.254/bin/astro.php?lon=114.350&lat=30.511&ac=0&lang=zh-CN&unit=metric&output=internal&tzshift=0";
-                new Thread(){
-                    @Override
-                    public void run(){
-                        try {
-                            loadRmoteImage(strUrl);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
+//                strUrl="http://167.99.8.254/bin/astro.php?lon=114.350&lat=30.511&ac=0&lang=zh-CN&unit=metric&output=internal&tzshift=0";
 
+                edtLon.setText("114.350");
+                edtLat.setText("30.511");
 
 //                strUrl="http://167.99.8.254/bin/astro.php?lon=114.350&lat=30.511&ac=0&lang=zh-CN&unit=metric&output=internal&tzshift=0";
 //                Uri uri = Uri.parse(strUrl);//要跳转的网址
@@ -88,12 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        str1 = "http://167.99.8.254/bin/astro.php?lon=";
-        str2 = "&lat=";
-        str3 = "&ac=0&lang=zh-CN&unit=metric&output=internal&tzshift=0";
 
-        edtLon = (EditText) findViewById(R.id.editTextLon);
-        edtLat = (EditText) findViewById(R.id.editTextLat);
         btnSetPos = (Button) findViewById(R.id.SetPosition);
         btnSetPos.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "有可用的位置提供器", Toast.LENGTH_SHORT);
                     return;
                 }
+
                 Location location = locationManager.getLastKnownLocation(locationProvider);
                 Toast.makeText(MainActivity.this, "为空，不显示地理位置", Toast.LENGTH_SHORT);
                 if (location != null) {
@@ -158,11 +154,19 @@ public class MainActivity extends AppCompatActivity {
 //                showLocation(location);
 //                strLon = edtLon.getText().toString();
 //                strLat = edtLat.getText().toString();
-                edtLon.setText(strLon);
-                edtLat.setText(strLat);
+
+                if(location==null){
+                    Toast.makeText(MainActivity.this, "未获取到经纬度信息", Toast.LENGTH_SHORT);
+                    return;
+                }
+
                 strLon=Double.toString(location.getLongitude());
                 strLat=Double.toString(location.getLatitude());
-                strUrl = str1 + strLon + str2 + strLat + str3;
+
+                edtLon.setText(strLon);
+                edtLat.setText(strLat);
+
+
 //                Uri uri = Uri.parse(strUrl);//要跳转的网址
 //                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 //                startActivity(intent);
@@ -172,20 +176,32 @@ public class MainActivity extends AppCompatActivity {
 //                HttpResponse response = client.execute(request);
 //                InputStream ins = response.getEntity().getContent();
 
-                new Thread(){
-                        @Override
-                        public void run(){
-                            try {
-                                loadRmoteImage(strUrl);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }.start();
+
 
 
                 }
 
+        });
+
+        btnOK=(Button)findViewById(R.id.btnOK);         //查询天气
+        btnOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strLon=edtLon.getText().toString();
+                strLat=edtLat.getText().toString();
+                strUrl = str1 + strLon + str2 + strLat + str3;
+                new Thread(){
+                    @Override
+                    public void run(){
+                        try {
+                            loadRmoteImage(strUrl);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }.start();
+
+            }
         });
     }
 

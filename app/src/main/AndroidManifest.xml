@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
         <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,5 +28,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

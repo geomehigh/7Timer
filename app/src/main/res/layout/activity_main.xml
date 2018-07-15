@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@mipmap/librarywithstar"
     android:orientation="vertical"
     tools:context="com.example.a4.a7timer.MainActivity">
 
@@ -56,20 +57,44 @@
             android:layout_weight="1"
             >
 
-            <Button
-                android:text="设置"
-                android:layout_height="0dp"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:id="@+id/SetPosition"
-                android:layout_weight="1" />
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-            <Button
-                android:text="武汉经纬"
-                android:layout_weight="1"
+                <Button
+                    android:text="设置"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/SetPosition"
+                    android:layout_weight="1"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:text="武汉经纬"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:id="@+id/btnWhut"
+                    android:textSize="9sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:id="@+id/btnWhut"
-                android:textSize="12sp" />
+                android:layout_weight="1">
+
+                <Button
+                    android:text="查询"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:id="@+id/btnOK"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
         </LinearLayout>
 
 
@@ -86,7 +111,6 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@mipmap/library_star"
             android:id="@+id/imageView"
             android:layout_weight="1" />
     </LinearLayout>
