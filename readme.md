@@ -1,5 +1,5 @@
 ## 7Timer
-![首页图](https://github.com/h1astro/7Timer/tree/master/app/src/main/res/mipmap-hdpi/pic1.png?raw=true)
+![首页图](https://raw.githubusercontent.com/h1astro/7Timer/master/app/src/main/res/mipmap-hdpi/pic1.png)
 Develop this app just because of one app which called "晴天钟" its server is wrong.But there is another server.
 Thanks to that server which is "www.7timer.info" provides API.So I can use this api to inquire these days weather! 
 
