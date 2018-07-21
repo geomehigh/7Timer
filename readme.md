@@ -8,4 +8,4 @@ Astro Seeing,Transparency, 2m Temp(c),Precipitation,Instability,Windy Signal.
 It supports Manual input and Wuhan local longitude and Latitude. Unfortunately,it can't use "定位" button which is wrong,
 but in my virtual machine which is successful. 
 You can click "武汉经纬" button，then click "查询" button.You can see a picture.
-![效果图](https://github.com/h1astro/7Timer/tree/master/app/src/main/res/mipmap-hdpi/pic2.png?raw=true)
+![效果图](https://raw.githubusercontent.com/h1astro/7Timer/master/app/src/main/res/mipmap-hdpi/pic2.png)
