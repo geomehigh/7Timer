@@ -7,6 +7,6 @@ This app's main function is inquire your local or the place where you are the we
 Astro Seeing,Transparency, 2m Temp(c),Precipitation,Instability,Windy Signal.\
 It supports gps,Manual input and Wuhan local longitude and Latitude.
 You can use "定位" button to show your local position or click "武汉经纬" button，then click "查询" button.You can see a picture.
-But you should notice the "定位" button which mayshould click more times will return data!
+But you should notice the "定位" button which may click more times will return data!
 \
 ![效果图](https://raw.githubusercontent.com/h1astro/7Timer/master/app/src/main/res/mipmap-hdpi/pic2.png)
