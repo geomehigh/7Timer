@@ -220,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
      *   下载远程图片
      */
     private void loadRmoteImage(String imgUrl) throws IOException {
-        //imgUrl = "http://101.132.190.87/heng/picture.png";
         BaseHttpConnection connection = new BaseHttpConnection();
         connection.setInstanceCookieStorage(true);
         connection.setInstanceFollowRedirects(false);
